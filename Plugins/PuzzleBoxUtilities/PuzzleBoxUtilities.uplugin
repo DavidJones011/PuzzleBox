@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "PuzzleBoxUtilities",
+	"Description": "Utilities for Puzzle Box",
+	"Category": "Other",
+	"CreatedBy": "SnarkyPlatypus",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "PuzzleBoxUtilities",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
