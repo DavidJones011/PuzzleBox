@@ -12,6 +12,14 @@ class PUZZLEBOXUTILITIES_API UInventoryComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
+private:
+	TMap <FName,int32> MapInventory;
+	int32 Add(FName ItemName, int32 Count);   
+	int32 Remove(FName ItemName, int32 Count);
+	bool IsFull() const;                      
+	bool IsEmpty() const;                     
+	bool HasItem(FName ItemName) const;       
+
 public:	
 	// Sets default values for this component's properties
 	UInventoryComponent();
