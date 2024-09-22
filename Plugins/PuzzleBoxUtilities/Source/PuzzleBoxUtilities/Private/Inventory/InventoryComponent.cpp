@@ -29,6 +29,10 @@ int32 UInventoryComponent::Remove(FName ItemName, int32 Count)
 	{
 		int32 Count = *Countptr;
 		Count--;
+		if (Count == 0)
+		{
+			MapInventory.Remove(ItemName);
+		}
 	}
 	else
 	{
@@ -52,7 +56,13 @@ bool UInventoryComponent::IsEmpty() const
 // returns if inventory holds this item
 bool UInventoryComponent::HasItem(FName ItemName) const
 {
-	return false;
+	//int32* Itemptr = MapInventory.Find(ItemName);
+	//
+	//if(Itemptr)
+	//{
+	//	return true;
+	//}
+	//return false;
 }
 
 // Sets default values for this component's properties
