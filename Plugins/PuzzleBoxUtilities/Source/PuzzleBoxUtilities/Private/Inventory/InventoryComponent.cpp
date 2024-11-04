@@ -7,29 +7,30 @@
 int32 UInventoryComponent::Add(FName ItemName, int32 Count)
 {
 	int32* Countptr = MapInventory.Find(ItemName);
+	int32 CurrentCount = *Countptr;;
 
 	if (Countptr) 
 	{
-		int32 Count = *Countptr;
-		Count++;
+		CurrentCount += Count;
 	}
 	else 
 	{
 		MapInventory.Add(ItemName, Count);
 	}
-	return int32();
+	return CurrentCount;
 }
 
 // returns the number of items removed
 int32 UInventoryComponent::Remove(FName ItemName, int32 Count)
 {
 	int32* Countptr = MapInventory.Find(ItemName);
+	int32 CurrentCount = *Countptr;;
 
 	if (Countptr)
 	{
-		int32 Count = *Countptr;
-		Count--;
-		if (Count == 0)
+		CurrentCount += Count;
+
+		if (CurrentCount <= 0)
 		{
 			MapInventory.Remove(ItemName);
 		}
@@ -56,13 +57,7 @@ bool UInventoryComponent::IsEmpty() const
 // returns if inventory holds this item
 bool UInventoryComponent::HasItem(FName ItemName) const
 {
-	//int32* Itemptr = MapInventory.Find(ItemName);
-	//
-	//if(Itemptr)
-	//{
-	//	return true;
-	//}
-	//return false;
+	return MapInventory.Contains(ItemName);
 }
 
 // Sets default values for this component's properties
